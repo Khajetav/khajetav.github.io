@@ -1,7 +1,11 @@
-import React from 'react';
-import logo from './resources/reactLogo.png';
 import './App.css';
-import StarryBackground from './StarryBackground';
+import React from 'react';
+
+import StarryBackground from './components/StarryBackground';
+import ImageToAscii from './components/ImageToAscii';
+
+import logo from './resources/reactLogo.png';
+import backgroundFog from './resources/backgroundFog.png';
 import circle1 from './resources/circle1.png';
 import circle2 from './resources/circle2.png';
 import circle3 from './resources/circle3.png';
@@ -9,25 +13,28 @@ import circle4 from './resources/circle4.png';
 
 function App() {
   return (
-    <div className="App">
-      <StarryBackground/>
-        <header className="App-header">
-        {/* rotating react logo to flex that I used react*/}
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Khajetav
-        </p>
+      <div className="App">
+          {/* non functional, decorative pieces*/}
+          <StarryBackground className="StarryBackgroundComponent" />
+          <div className="ImgToAsciiComponent">
+              <ImageToAscii imageUrl={backgroundFog} fontSize={0.3} resolutionFactor={0.32} />
+          </div>    
+          <RotatingSunComponent className="RotatingSunComponent" />
+          
 
 
-        <div className="profile-section">
-        <RotatingSunComponent />
-        </div>
-        <p>Hello</p>
-        <div className="cv-links">
-          <a href="cven" target="_blank" rel="noopener noreferrer">My CV (EN)</a>
-          <a href="cvlt" target="_blank" rel="noopener noreferrer">My CV (LT)</a>
-        </div>
-      </header>
+          <div className="cv-links">
+              <a href="cven" target="_blank" rel="noopener noreferrer">My CV (EN)</a>
+              <a href="cvlt" target="_blank" rel="noopener noreferrer">My CV (LT)</a>
+          </div>
+
+          {/* rotating react logo to flex that I used react*/}
+
+          <header className="App-header">
+
+              <img src={logo} className="App-logo" alt="logo" />
+
+          </header>
       
     </div>
   );
@@ -43,4 +50,6 @@ function RotatingSunComponent() {
     </div>
   );
 }
+
+
 export default App;
